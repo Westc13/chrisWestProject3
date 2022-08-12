@@ -1,6 +1,9 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Dropdown from './Dropdown';
+import DisplayPhoto from './DisplayPhoto';
+import DisplayTexts from './DisplayTexts';
 
 
 function App() {
@@ -20,8 +23,13 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <h1>Show Me Disney Characters</h1>
-      <select>
+      <h1>Show Me A Disney Character!</h1>
+      {/* <Dropdown />
+      <DisplayPhotos />
+      <DisplayTexts /> */}
+      {/* install an event listener to select menu then use the call back function to capture user selected character, then somehow pass this user selected character to Display component maybe puppies code along is a good tool? */}
+      <select onChange={() => console.log('woooohoooo')}>
+    
         {char.map(charObj => {
         return (
             <option>{charObj.name}</option>)
