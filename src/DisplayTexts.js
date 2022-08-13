@@ -1,4 +1,5 @@
-function DisplayTexts() {
+function DisplayTexts(props) {
+
     return (
         <div>
 

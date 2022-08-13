@@ -1,13 +1,20 @@
 import { useState } from 'react';
 
 function Dropdown(props) {
+    const { characterArray, setSelectedIndex } = props;
     const [userChoice, setUserChoice] = useState('placeholder');
     const handleUserChoice = (e)=>{
         setUserChoice(e.target.value);
+    
     }
-    console.log(props);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSelectedIndex(+userChoice);
+    }
+        
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="characterChoice" className="sr-only">Select a character</label>
             <select
                 value={userChoice}
                 onChange={handleUserChoice}
@@ -16,12 +23,12 @@ function Dropdown(props) {
             >
                 <option value="placeholder" disabled>Pick one:</option>
 
-                {char.map(charObj => {
+                {characterArray.map((charObj, index) => {
                 return (
-                    <option>{charObj.name}</option>)
+                    <option value={index} key={charObj._id}>{charObj.name}</option>)
             })}
             </select>
-            <button type="submit">Give me a Disney Character@</button>
+            <button type="submit">Give me a Disney Character</button>
         </form>
     )
 }
