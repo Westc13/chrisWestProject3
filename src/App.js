@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Dropdown from "./Dropdown";
 import DisplayPhoto from './DisplayPhoto';
-// import DisplayTexts from './DisplayTexts';
+import DisplayTexts from './DisplayTexts';
 
 function App() {
   const [characterArray, setCharacterArray] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  // const [isLoading, setIsLoding] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
@@ -20,20 +20,22 @@ function App() {
     }).then((response) => {
       console.log(response.data.data);
       setCharacterArray(response.data.data);
-      // setIsLoading(false);
+      setIsLoading(false);
     });
   }, []);
-  // console.log(selectedIndex)
   return (
     <div className="App">
       <h1>Show Me A Disney Character!</h1>
-      <Dropdown characterArray={characterArray} setSelectedIndex={setSelectedIndex} />
-      { selectedIndex !== null ? (
-        
-        <DisplayPhoto character={characterArray[selectedIndex]} />
-      ) : (
-        null
-      )}
+      <Dropdown
+        characterArray={characterArray}
+        setSelectedIndex={setSelectedIndex}
+      />
+      {selectedIndex !== null ? (
+        <>
+          <DisplayPhoto character={characterArray[selectedIndex]} />
+          <DisplayTexts character={characterArray[selectedIndex]} />
+        </>
+      ) : null}
     </div>
   );
 }

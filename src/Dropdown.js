@@ -23,9 +23,9 @@ function Dropdown(props) {
             >
                 <option value="placeholder" disabled>Pick one:</option>
 
-                {characterArray.map((charObj, index) => {
+                {characterArray.map((characterObj, index) => {
                 return (
-                    <option value={index} key={charObj._id}>{charObj.name}</option>)
+                    <option value={index} key={characterObj._id}>{characterObj.name}</option>)
             })}
             </select>
             <button type="submit">Give me a Disney Character</button>
