@@ -25,17 +25,23 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <h1>Show Me A Disney Character!</h1>
-      <Dropdown
-        characterArray={characterArray}
-        setSelectedIndex={setSelectedIndex}
-      />
-      {selectedIndex !== null ? (
+      {isLoading !== false ? (
+        <p>Oops! Something went wrong! Please try again later!</p>
+      ) : (
         <>
-          <DisplayPhoto character={characterArray[selectedIndex]} />
-          <DisplayTexts character={characterArray[selectedIndex]} />
+          <h1>Show Me A Disney Character!</h1>
+          <Dropdown
+            characterArray={characterArray}
+            setSelectedIndex={setSelectedIndex}
+          />
+          {selectedIndex !== null ? (
+            <>
+              <DisplayPhoto character={characterArray[selectedIndex]} />
+              <DisplayTexts character={characterArray[selectedIndex]} />
+            </>
+          ) : null}
         </>
-      ) : null}
+      )}
     </div>
   );
 }
