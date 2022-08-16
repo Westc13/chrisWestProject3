@@ -25,8 +25,8 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {isLoading !== false ? (
-        <p>Oops! Something went wrong! Please try again later!</p>
+      {isLoading === true ? (
+        <p>Please wait! The site is loading.</p>
       ) : (
         <>
           <h1>Show Me A Disney Character!</h1>
