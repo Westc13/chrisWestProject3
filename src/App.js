@@ -4,6 +4,7 @@ import axios from "axios";
 import Dropdown from "./Dropdown";
 import DisplayPhoto from './DisplayPhoto';
 import DisplayTexts from './DisplayTexts';
+import Footer from './Footer';
 
 function App() {
   const [characterArray, setCharacterArray] = useState([]);
@@ -42,6 +43,7 @@ function App() {
           ) : null}
         </>
       )}
+      <Footer />
     </div>
   );
 }
